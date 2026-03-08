@@ -2,6 +2,7 @@
 char charkeys[10]={'D','B','D','C','C','D','A','E','A','D'};
 int checkscore(char std[]);
 int statQ1(char ans[][10]);
+int findHardest(char ans[][10]);
 int main() {
     int i,j;
     char ans[8][10]={
@@ -41,6 +42,25 @@ int statQ1(char ans[][10]) {
         }
     }
     return count;
+}
+int findHardest(char ans[][10]) {
+    int min_correct = 8; 
+    int hardest_index = 0;
+
+    for (int j = 0; j < 10; j++) { 
+        int current_correct = 0; 
+        for (int i = 0; i < 8; i++) { 
+            if (ans[i][j] == keys[j]) {
+                current_correct++;
+            }
+        }
+        if (current_correct < min_correct) {
+            min_correct = current_correct;
+            hardest_index = j;
+        }
+    }
+    
+    return hardest_index + 1; 
 }
 
 
