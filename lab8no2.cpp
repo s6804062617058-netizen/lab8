@@ -1,7 +1,7 @@
 #include <stdio.h>
 char charkeys[10]={'D','B','D','C','C','D','A','E','A','D'};
 int checkscore(char std[]);
-
+int statQ1(char ans[][10]);
 int main() {
     int i,j;
     char ans[8][10]={
@@ -33,4 +33,15 @@ int checkscore(char std[]){
     }
     return score;
 }
+int statQ1(char ans[][10]) {
+    int count = 0;
+    for (int i = 0; i < 8; i++) {
+        if (ans[i][0] == keys[0]) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
 
